@@ -311,17 +311,14 @@ body {
     margin-bottom: 50px;
     position: absolute;
     top: 500px;
-    left: 30%;
+    left: 20%;
     right: 20%;
     overflow: hidden;
+    text-align: center;
   }
 
   /* .scroll__salida {
   } */
-
-  .main__container {
-    position: relative;
-  }
 
   .item__image {
     max-width: 100px;
@@ -332,6 +329,7 @@ body {
 
   .main__container {
     overflow: hidden;
-    max-width: 1720px;
+
+    position: relative;
   }
 }
