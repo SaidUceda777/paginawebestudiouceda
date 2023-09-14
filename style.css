@@ -44,6 +44,7 @@ body {
   margin-top: 120px;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .hero__title {
@@ -57,12 +58,11 @@ body {
   content: "";
   position: absolute;
   height: 2px;
-  width: 90vw;
   top: 150px;
   margin-bottom: 50px;
-  display: block;
-  left: 0;
-  right: 0;
+
+  right: 1%;
+  left: 1%;
   background-color: black;
 }
 
@@ -158,6 +158,7 @@ body {
   flex-direction: column;
   text-align: center;
   gap: 1.2em;
+  margin: 0 15px;
 }
 
 .item__title {
