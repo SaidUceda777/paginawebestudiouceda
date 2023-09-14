@@ -1,6 +1,6 @@
 :root {
   --bg-color: #edf0f4;
-
+  --text-negro: black;
   --font1-h1: "Oswald", sans-serif;
   --font2-p: "Fira Code", monospace;
 }
@@ -73,7 +73,7 @@ body {
 
   right: 1%;
   left: 1%;
-  background-color: black;
+  background-color: var(--text-negro);
 }
 
 .hero__text {
@@ -183,7 +183,8 @@ body {
 
 .item__image {
   min-width: 100px;
-  border: solid black;
+  max-width: 100px;
+  border: solid var(--text-negro);
   border-radius: 100px;
   padding: 15px;
 }
@@ -193,6 +194,10 @@ body {
 }
 
 .hero__cta--top {
+  display: none;
+}
+
+.scroll {
   display: none;
 }
 
@@ -209,6 +214,7 @@ body {
   .hero__link {
     display: block;
     text-decoration: none;
+    color: var(--text-negro);
   }
   .nav__container {
     align-items: center;
@@ -236,5 +242,96 @@ body {
 
   .container__item {
     max-width: 30%;
+    margin-bottom: 80px;
+  }
+
+  .hero__section {
+    margin: 80px 30px 350px 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* .hero__section::after {
+    content: "Te asesoramos en estas 3 áreas";
+    position: absolute;
+    top: 550px;
+    font-size: 40px;
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: show;
+  } */
+
+  /* @keyframes show {
+    from {
+      opacity: 0;
+      scale: 25%;
+    }
+
+    to {
+      opacity: 1;
+      scale: 100%;
+    }
+  } */
+  @keyframes mover {
+    0% {
+      transform: translate(150%);
+    }
+    100% {
+      transform: translate(0%);
+    }
+  }
+
+  @keyframes moverreverso {
+    0% {
+      transform: translate(0%);
+    }
+    100% {
+      transform: translate(190%);
+      border: 0;
+    }
+  }
+
+  @keyframes invisible {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .scroll {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 50px;
+    position: absolute;
+    top: 500px;
+    left: 30%;
+    right: 20%;
+    overflow: hidden;
+  }
+
+  /* .scroll__salida {
+  } */
+
+  .main__container {
+    position: relative;
+  }
+
+  .item__image {
+    max-width: 100px;
+    border: solid var(--text-negro);
+    border-radius: 100px;
+    padding: 15px;
+  }
+
+  .main__container {
+    overflow: hidden;
+    max-width: 1720px;
   }
 }
