@@ -1,0 +1,241 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Said Uceda</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_CSIRE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js">  </script>
+
+  </head>
+<body>
+ 
+  <!-- <header>
+    <div class="container" id="contendedor-header" style= "background: #0E4878; width: 100%; color: #ffff; margin-bottom: 20px;" >
+      <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 text-center">
+                <h1>Obtén Glosas - Precio Unitario - Cantidad</h1>
+                <h5> ... todo eso automáticamente </h5>
+            </div>
+        </div>
+    </div>
+</header> -->
+
+  <nav class="nav__container container " style="width: 100%; margin: 0; padding: 0; justify-content: space-between !important; display: flex !important; width: auto; " >
+      <figure class="hero__logo__container">
+        <img src="logo.svg" alt="" class="hero__logo__icon" />
+      </figure>
+      <figure class="hero__logo__hamburguer container">
+        <img src="menu.svg" alt="" class="hero__hamburguer" />
+      </figure>
+      <div class="hero__links container">
+        <a href="index.html" class="hero__link">Asesoría Tributaría</a
+        ><a href="index.html" class="hero__link">Asesoría Financiera</a
+        ><a href="index.html" class="hero__link">Asesoría Contable</a>
+        <a href="./aplicativos.html" class="hero__link">Aplicativos</a>
+        <a href="" class="hero__cta hero__cta--top">Llámenos</a>
+      </div>
+    </nav>
+ <main class="container container__complementoSIRE">
+  <div class="container" style="justify-content: center; width: 80%; padding: 0;  border-color: #000;">
+    <div class="panel panel-primary" style="width: 100%; border-color: #000; box-shadow: 2px 0 10px black;">
+      <div class="panel-heading" style=" border-color: #000; background-color: #000 !important;">Datos de la empresa</div>
+      <div class="panel-body" ></div>
+      <form>
+        <div class="form-group">
+        <div class="row" style="padding-bottom: 25px ;">
+            <div class="col-lg-3 col-lg-offset-1">
+                  <label for="documento">RUC</label>
+                  <input name="exampleInputEmail1" type="string" class="form-control" id="documento" placeholder="RUC" value="">
+            </div>
+           
+        <div class="col-lg-3 ">
+            <label for="FECHADEEMISIONGENERAL">FECHA DE EMISION INICIAL</label>
+            <input type="string" class="form-control" id="FECHADEEMISIONGENERAL" placeholder="DD/MM/AAAA" >
+        </div>
+     
+        <div>
+             <div class="col-lg-3">
+            <label for="FECHADEEMISIONGENERAL2">FECHA DE EMSION FINAL</label>
+            <input type="string" class="form-control" id="FECHADEEMISIONGENERAL2" placeholder="DD/MM/AAAA">
+        </div>
+    </div>
+      </div>
+    
+      </form>
+
+      </div>
+  </div>
+     </div>
+  </div>
+  <div class="container" style="justify-content: center; width: 80%;  padding: 0;"  >
+    <div class="panel panel-primary" style="width: 100%; box-shadow: 2px 0 10px black;  border-color: #000;"> 
+
+
+      <div class="panel panel-primary" style="border: #ffff !important;  border-color: #000;">
+          <div class="panel-heading " style=" border-color: #000; background-color: #000  !important;">Cargue el archivo</div>
+                      <div class="panel-body" style="border: #ffff !important; display: flex; gap: 20px;  border-color: #000;">
+                    <!-- Input type file to upload excel file -->
+                <input  class="editarfile_original" type="file" id="fileUpload" accept=".xls,.xlsx" /><br />
+                <label for="fileUpload" class="editarfile">Seleccionar archivo</label>
+                <figcaption class="img_ok" style="display: none;">
+                  <img src="css/ComplementoSIRE/check.svg" alt="">
+                </figcaption>
+                <button type="button" id="uploadExcel" onclick= "" class="botoncargarexcel" >Enviar</button>
+              
+                <!-- Render parsed JSON data here -->
+
+                <div hidden style="margin-top:10px; padding-bottom: 25px ; display: none;">
+                    <pre id="jsonData" style="display: none;"></pre>
+                          </div>
+                      </div>
+
+    </div>      
+        </div>
+ </main>
+  
+
+     <script> 
+     
+     let inputElement = document.getElementById('fileUpload');
+     
+    
+
+          inputElement.addEventListener('change', function() {
+
+              let img_ok = document.querySelector('.img_ok');
+
+              if (inputElement.files.length > 0) {
+                  img_ok.style.display = "block"
+              } else {
+                  
+                  img_ok.style.display = "none"
+              }
+          });
+
+      let data = {}
+      var data2 = [];
+      var leo = [];
+
+ // document.getElementById('uploadExcel').addEventListener('click', sendRequest2);
+
+      const url2 = 'http://localhost:3000';
+
+           const sendRequest2 = () => {
+
+             var documento = document.getElementById('documento').value;
+
+       
+
+        var FECHADEEMISIONGENERAL = document.getElementById('FECHADEEMISIONGENERAL').value;
+
+        var FECHADEEMISIONGENERAL2 = document.getElementById('FECHADEEMISIONGENERAL2').value;
+    
+
+        data.documento = documento;
+        data.FECHADEEMISIONGENERAL = FECHADEEMISIONGENERAL; // opc
+        data.FECHADEEMISIONGENERAL2 = FECHADEEMISIONGENERAL2; // opc
+
+            fetch(url2, {
+              method: 'POST',
+              mode:"cors",
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ data2: data2[0], data })
+            })
+            .then(res => res.json())
+            .then(data => leo = data)
+            .catch(error => console.log(error))
+            .then(response => console.log('Success:', response)); 
+            
+          };
+
+    var selectedFile;
+document
+  .getElementById("fileUpload")
+  .addEventListener("change", function(event) {
+    selectedFile = event.target.files[0];
+  });
+document
+  .getElementById("uploadExcel")
+  .addEventListener("click", function() {
+    if (selectedFile) {
+      var fileReader = new FileReader();
+      fileReader.onload = function(event) {
+        var data = event.target.result;
+
+        var workbook = XLSX.read(data, {
+          type: "binary"
+        });
+        workbook.SheetNames.forEach(sheet => {
+          let rowObject = XLSX.utils.sheet_to_row_object_array(
+          workbook.Sheets[sheet]);
+          console.log(rowObject);
+          var jsonObject = JSON.stringify(rowObject);
+          document.getElementById("jsonData").innerHTML = jsonObject; // lo que necesito
+          
+          data2.push(`${jsonObject}`);
+          sendRequest2();
+
+            console.log(jsonObject);
+            console.log(data2);
+            console.log( typeof jsonObject);
+        });
+      };
+      fileReader.readAsBinaryString(selectedFile);
+    }
+  });
+
+  
+//////////////////////////////// 
+
+let botonexcel = document.querySelector(".botoncargarexcel")
+var abc
+var elemento = document.getElementById("uploadExcel");
+elemento.onclick = function (){  
+  abc = setTimeout(retraso(), 50);} 
+function retraso() { var aux = document.getElementById('jsonData').innerHTML;} // la jugada  
+
+/*var jsondata = JSON.parse(aux);
+console.log( typeof jsondata);
+console.log(jsondata);
+console.log(jsondata.length);*/
+
+//var columnas = Object.getOwnPropertyNames(jsondata); //jsondata es la variable a enviar
+
+
+
+
+   let guardarArchivoDeTexto = (contenido, nombre) => {
+        let a = document.createElement("a");
+        let archivo = new Blob([contenido], { type: 'text/plain' });
+        let url = URL.createObjectURL(archivo);
+        a.href = url;
+        a.download = nombre;
+        a.click();
+        URL.revokeObjectURL(url);
+}
+
+
+
+    </script>
+      </div>
+  </div>
+  </div>
+
+</div>
+
+
+   
+  </body>
+</html>

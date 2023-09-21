@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uceda Studium</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,9 +27,10 @@
         <img src="menu.svg" alt="" class="hero__hamburguer" />
       </figure>
       <div class="hero__links container">
-        <a href="" class="hero__link">Asesoría Tributaría</a
-        ><a href="" class="hero__link">Asesoría Financiera</a
-        ><a href="" class="hero__link">Asesoría Contable</a>
+        <a href="#final" class="hero__link">Asesoría Tributaría</a
+        ><a href="#final" class="hero__link">Asesoría Financiera</a
+        ><a href="#final" class="hero__link">Asesoría Contable</a>
+        <a href="./aplicativos.html" class="hero__link">Aplicativos</a>
         <a href="" class="hero__cta hero__cta--top">Llámenos</a>
       </div>
     </nav>
@@ -38,11 +39,19 @@
         <h1 class="hero__title">Te asesoramos en lo que necesitas!</h1>
         <p class="hero__text">Llamanos en cualquier momento</p>
         <div class="hero__socialmedia container">
-          <img src="image_fb.svg" alt="" class="socialmedia" /><img
-            src="image_instagram.svg"
+          <img
+            src="css/main_page/image__fb.svg"
             alt=""
             class="socialmedia"
-          /><img src="image_linkedin.svg" alt="" class="socialmedia" />
+          /><img
+            src="css/main_page/image__instagram.svg"
+            alt=""
+            class="socialmedia"
+          /><img
+            src="css/main_page/image__linkedin.svg"
+            alt=""
+            class="socialmedia"
+          />
         </div>
         <a href="" class="hero__cta">Llámenos</a>
       </section>
@@ -55,7 +64,11 @@
       <section class="container container__items">
         <div class="container container__item">
           <figure>
-            <img src="bx-dollar.svg" alt="" class="item__image" />
+            <img
+              src="css/main_page/image__tax.svg"
+              alt=""
+              class="item__image"
+            />
           </figure>
           <h2 class="item__title">Asesoría Tributaría</h2>
           <p class="item__paragrap">
@@ -63,11 +76,15 @@
             exoneraciones e incentivos, así como la planificación de estrategias
             con la finalidad de informar impuestos.
           </p>
-          <a href="" class="item__cta hero__cta">Ver más</a>
+          <a href="" class="item__cta hero__cta" id="final">Ver más</a>
         </div>
         <div class="container container__item">
           <figure>
-            <img src="bxs-credit-card-alt.svg" alt="" class="item__image" />
+            <img
+              src="css/main_page/image__creditcard.svg"
+              alt=""
+              class="item__image"
+            />
           </figure>
           <h2 class="item__title">Asesoría Financiera</h2>
           <p class="item__paragrap">
@@ -79,7 +96,11 @@
         </div>
         <div class="container container__item">
           <figure>
-            <img src="bxs-book.svg" alt="" class="item__image" />
+            <img
+              src="css/main_page/image__calc.svg"
+              alt=""
+              class="item__image"
+            />
           </figure>
           <h2 class="item__title">Asesoría Contable</h2>
           <p class="item__paragrap">
@@ -94,3 +115,21 @@
     <script src="index.js"></script>
   </body>
 </html>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth", // Esto habilita el desplazamiento suave
+        });
+      }
+    });
+  });
+</script>

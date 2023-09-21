@@ -1,0 +1,52 @@
+.container__complementoSIRE {
+  height: 80vh;
+  flex-direction: column !important;
+  justify-items: center !important;
+  align-items: center !important;
+  gap: 50px;
+  max-width: 1400px;
+}
+
+.botoncargarexcel {
+  padding: 2px 35px;
+  background: white;
+  border-radius: 5px;
+  font-weight: 700;
+  border: 2px solid black;
+}
+
+.botoncargarexcel:hover {
+  background: black;
+  color: white;
+  border: 2px solid black;
+}
+
+.editarfile {
+  color: black;
+  display: block;
+  padding: 2px 35px;
+  background: white;
+  border-radius: 5px;
+  outline: black;
+  margin: 0;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.editarfile:hover {
+  background: black;
+  color: white;
+}
+
+.editarfile_original {
+  display: none !important;
+}
+
+.form-control:focus {
+  border-color: black;
+  box-shadow: 0px 0px 5px 0.1px black !important;
+}
+
+.form-control {
+  box-shadow: inset 0 0.5px 0.5px black;
+}

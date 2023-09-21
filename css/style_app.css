@@ -1,0 +1,47 @@
+.container__obten__descripcion {
+  display: flex;
+  height: 30vh;
+  align-items: center;
+}
+
+.scroll {
+  font-size: 60px;
+  display: block;
+  margin-bottom: 50px;
+  position: absolute;
+  top: 150px;
+  left: 20%;
+  right: 20%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.item__image--excel {
+  overflow: visible;
+  padding: 20px;
+}
+
+@media (min-width: 728px) {
+  .item__image--excel {
+    overflow: visible;
+    padding: 20px;
+  }
+
+  .container__items {
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  body {
+    max-width: 1723px;
+  }
+  .container__item {
+    min-width: 450px;
+  }
+
+  .hero__logo__container {
+    min-width: 990px;
+  }
+}

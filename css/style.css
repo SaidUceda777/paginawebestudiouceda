@@ -206,6 +206,13 @@ body {
     display: none;
   }
 
+  body {
+    max-width: 1723px;
+  }
+  .hero__logo__container {
+    min-width: 990px;
+  }
+
   .hero__logo__hamburguer {
     display: none;
     width: 100%;
@@ -238,10 +245,12 @@ body {
 
   .container__items {
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .container__item {
     max-width: 30%;
+    max-width: 450px;
     margin-bottom: 80px;
   }
 
