@@ -207,7 +207,8 @@ body {
   }
 
   body {
-    max-width: 1723px;
+    width: 100%;
+    padding: 0;
   }
   .hero__logo__container {
     min-width: 990px;
@@ -220,9 +221,17 @@ body {
 
   .hero__link {
     display: block;
-    text-decoration: none;
+    text-decoration: none !important;
     color: var(--text-negro);
   }
+
+  .hero__link:hover {
+    color: black !important;
+    border-bottom: 3px solid black;
+    padding-bottom: 2px;
+    border-radius: 1px;
+  }
+
   .nav__container {
     align-items: center;
   }

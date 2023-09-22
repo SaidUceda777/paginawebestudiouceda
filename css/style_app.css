@@ -34,9 +34,10 @@
     margin: 0 auto;
   }
 
-  body {
+  /* body {
     max-width: 1723px;
-  }
+  } */
+
   .container__item {
     min-width: 450px;
   }
