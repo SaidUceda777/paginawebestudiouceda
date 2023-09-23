@@ -1,0 +1,260 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Emision de CPE Masivo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_CSIRE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+<body>
+ 
+   <nav class="nav__container container " style="width: 100%; margin: 0; padding: 0; justify-content: space-between !important; display: flex !important; width: auto; " >
+      <figure class="hero__logo__container">
+        <img src="logo.svg" alt="" class="hero__logo__icon" />
+      </figure>
+      <figure class="hero__logo__hamburguer container">
+        <img src="menu.svg" alt="" class="hero__hamburguer" />
+      </figure>
+      <div class="hero__links container">
+        <a href="index.html" class="hero__link">Asesoría Tributaría</a
+        ><a href="index.html" class="hero__link">Asesoría Financiera</a
+        ><a href="index.html" class="hero__link">Asesoría Contable</a>
+        <a href="./aplicativos.html" class="hero__link">Aplicativos</a>
+        <a href="" class="hero__cta hero__cta--top">Llámenos</a>
+      </div>
+    </nav>
+  <!-- <header>
+    <div class="container" id="contendedor-header" style= "background: black; width: 100%; color: #ffff; margin-bottom: 20px; justify-content: center; border: 1px solid black;" >
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 text-center">
+                <h1>Emision de CPE Masivo</h1>
+                <h5>Emita sus boletas</h5>
+            </div>
+        </div>
+    </div>
+</header> -->
+  <div class="container" style="margin: 50px 0; padding: 0; justify-content: center;">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="background-color: black !important; font-size: 18px;">Datos de la empresa</div>
+      <div class="panel-body"></div>
+      <form>
+        <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-1">
+                  <label for="exampleInputEmail1">RUC</label>
+                  <input type="string" class="form-control" id="documento" placeholder="RUC" value="20553305650">
+            </div>
+            <div class="col-lg-3 " style="display: none;">
+                <label for="exampleInputEmail1">USUARIO</label>
+                <input type="string" class="form-control" id="usuario" placeholder="USUARIO" value="SNOMERYM">
+          </div>
+          <div class="col-lg-3  " style="display: none;">
+            <label for="exampleInputEmail1">CONTRASEÑA</label>
+            <input type="string" class="form-control" id="contraseña" placeholder="CONTRASEÑA" value="Raul2020Ca">
+      </div>
+        <div class="col-lg-3 ">
+            <label for="exampleInputEmail1">FECHA DE EMISION</label>
+            <input type="string" class="form-control" id="FECHADEEMISIONGENERAL" placeholder="DD/MM/AAAA">
+        </div>
+            <div class="col-lg-3  ">
+                <label for="OK">TIPO DE ITEM</label>
+                <select class="form-control" id="TIPODEITEM">
+                  <option value="1">BIEN</option>
+                  <option value="2">SERVICIO</option>
+                </select>
+          </div>
+          <div class="col-lg-3 col-lg-offset-1">
+            <label for="exampleInputEmail1">MONTO CON IGV A BOLETEAR</label>
+            <input type="number" class="form-control" id="PVGENERAL" placeholder="S/">
+          </div>
+            <div class="col-lg-3  ">
+                <label for="OK">CODIGO DE UNIDAD DE MEDIDA</label>
+                <select class="form-control" id="CODIGO_DE_UNIDAD_DE_MEDIDA" >
+                  <option value="4A-BOBINAS">4A-BOBINAS</option>                                               
+                  <option value="BJ-BALDE">BJ-BALDE</option>                                                 
+                  <option value="BLL-BARRILES">BLL-BARRILES<option>
+                  <option value="BG-BOLSA">BG-BOLSA</option>                                                 
+                  <option value="BO-BOTELLAS">BO-BOTELLAS</option>                                              
+                  <option value="BX-CAJA">BX-CAJA</option>                                                  
+                  <option value="CT-CARTONES" >CT-CARTONES</option>                                              
+                  <option value="CMK-CENTIMETRO CUADRADO" >CMK-CENTIMETRO CUADRADO<option>                                   
+                  <option value="CMQ-CENTIMETRO CUBICO" >CMQ-CENTIMETRO CUBICO<option>                                     
+                  <option value="CMT-CENTIMETRO LINEAL" >CMT-CENTIMETRO LINEAL<option>                                     
+                  <option value="CEN-CIENTO DE UNIDADES" >CEN-CIENTO DE UNIDADES<option>                                    
+                  <option value="CY-CILINDRO" >CY-CILINDRO</option>                                              
+                  <option value="CJ-CONOS" >CJ-CONOS</option>                                                 
+                  <option value="DZN-DOCENA" >DZN-DOCENA</option>                                                
+                  <option value="DZP-DOCENA POR 10**6" >DZP-DOCENA POR 10**6</option>                                      
+                  <option value="BE-FARDO" >BE-FARDO</option>                                                 
+                  <option value="GLI-GALON INGLES (4,545956L)" >GLI-GALON INGLES (4,545956L)</option>
+                  <option value="GRM-GRAMO" >GRM-GRAMO</option>                                                 
+                  <option value="GRO-GRUESA" >GRO-GRUESA</option>                                                
+                  <option value="HLT-HECTOLITRO" >HLT-HECTOLITRO</option>                                            
+                  <option value="LEF-HOJA" >LEF-HOJA</option>                                                  
+                  <option value="SET-JUEGO" >SET-JUEGO</option>                                                 
+                  <option value="KGM-KILOGRAMO"  selected>KGM-KILOGRAMO</option>                                             
+                  <option value="KTM-KILOMETRO" >KTM-KILOMETRO</option>                                             
+                  <option value="KWH-KILOVATIO HORA" >KWH-KILOVATIO HORA</option>                                        
+                  <option value="KT-KIT" >KT-KIT</option>                                                   
+                  <option value="CA-LATAS" >CA-LATAS</option>                                                 
+                  <option value="LBR-LIBRAS" >LBR-LIBRAS</option>                                                
+                  <option value="LTR-LITRO" >LTR-LITRO</option>                                                 
+                  <option value="MWH-MEGAWATT HORA" >MWH-MEGAWATT HORA</option>                                         
+                  <option value="MTR-METRO" >MTR-METRO</option>                                                 
+                  <option value="MTK-METRO CUADRADO" >MTK-METRO CUADRADO</option>                                        
+                  <option value="MTQ-METRO CUBICO" >MTQ-METRO CUBICO</option>                                          
+                  <option value="MGM-MILIGRAMOS" >MGM-MILIGRAMOS</option>                                            
+                  <option value="MLT-MILILITRO" >MLT-MILILITRO</option>                                             
+                  <option value="MMT-MILIMETRO" >MMT-MILIMETRO</option>                                             
+                  <option value="MMK-MILIMETRO CUADRADO" >MMK-MILIMETRO CUADRADO</option>                                    
+                  <option value="MMQ-MILIMETRO CUBICO" >MMQ-MILIMETRO CUBICO</option>                                      
+                  <option value="MLL-MILLARES" >MLL-MILLARES</option>                                              
+                  <option value="UM-MILLON DE UNIDADES" >UM-MILLON DE UNIDADES</option>                                    
+                  <option value="ONZ-ONZAS" >ONZ-ONZAS</option>                                                 
+                  <option value="PF-PALETAS" >PF-PALETAS</option>                                               
+                  <option value="PK-PAQUETE" >PK-PAQUETE</option>                                               
+                  <option value="PR-PAR" >PR-PAR</option>                                                   
+                  <option value="FOT-PIES" >FOT-PIES</option>                                                  
+                  <option value="FTK-PIES CUADRADOS" >FTK-PIES CUADRADOS</option>                                        
+                  <option value="FTQ-PIES CUBICOS" >FTQ-PIES CUBICOS</option>                                          
+                  <option value="C62-PIEZAS" >C62-PIEZAS</option>                                                
+                  <option value="PG-PLACAS" >PG-PLACAS</option>                                                
+                  <option value="ST-PLIEGO" >ST-PLIEGO</option>                                                
+                  <option value="INH-PULGADAS" >INH-PULGADAS</option>                                              
+                  <option value="RM-RESMA" >RM-RESMA</option>                                                 
+                  <option value="DR-TAMBOR" >DR-TAMBOR</option>                                                
+                  <option value="STN-TONELADA CORTA" >STN-TONELADA CORTA</option>                                        
+                  <option value="LTN-TONELADA LARGA" >LTN-TONELADA LARGA</option>                                        
+                  <option value="TNE-TONELADAS" >TNE-TONELADAS</option>                                             
+                  <option value="TU-TUBOS" >TU-TUBOS</option>                                                 
+                  <option value="NIU-UNIDAD" >NIU-UNIDAD (BIENES)</option>                                      
+                  <option value="ZZ-UNIDAD" >ZZ-UNIDAD (SERVICIOS)</option> 
+                  <option value="GLL-US GALON (3,7843 L)" >GLL-US GALON (3,7843 L)</option>
+                  <option value="YRD-YARDA" >YRD-YARDA</option>                                                 
+                  <option value="YDK-YARDA CUADRADA" >YDK-YARDA CUADRADA</option>                                        
+                </select>
+          </div>
+          <div class="col-lg-3  ">
+            <label for="exampleInputEmail1">CANTIDAD TOTAL</label>
+            <input type="number" class="form-control" id="CANTIDADGENERAL" placeholder="¿100KG?">
+          </div>
+          <div class="col-lg-3 col-lg-offset-1 ">
+            <label for="exampleInputEmail1">DESCRIPCION GENERAL</label>
+            <input type="string" class="form-control" id="DESCRIPCIONGENERAL" placeholder="¿POLLOS?">
+          </div>
+          <div class="col-lg-3 " style="display: none;">
+            <label for="exampleInputEmail1">NUMERO DE BOLETAS</label>
+            <input type="number" class="form-control" id="N" placeholder="##">
+          </div>
+          <div class="col-lg-3  ">
+            <label for="exampleInputEmail1">EMAIL</label>
+            <input type="string" class="form-control" id="EMAILGENERAL" placeholder="SAIDTECH@gmail.com">
+          </div>
+           <div class="col-lg-3  ">
+                <label for="OK">%IMPUESTO</label>
+                <select class="form-control" id="TIPODEIMPUESTO">
+                  <option value="1">18%</option>
+                  <option value="2">10%</option>
+                </select>
+          </div>
+          <div class="row" ></div>
+          <div class="col-lg-3 col-lg-offset-1">
+                <div class="form-group">
+                <button type="button" class="btn btn-default botoncargarexcel" id="cargardatos2" style="margin-top: 20px;">Enviar</button>
+                </div>
+        
+          </div>
+         
+    </div>
+      </div>
+      
+
+      </form>
+    
+      </div>
+  </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+</div>
+
+<audio id="musica" controls style="display: none;" >
+    <source src="miu.mp3" type="audio/mpeg">
+  </audio>
+
+<script> 
+    
+  const musica = document.getElementById('musica');
+   
+
+    const url = 'http://localhost:3000/boleteo';
+     sendRequest = () => {
+        
+        var SL = 0;
+        var documento = document.getElementById('documento').value;
+        var usuario = ""
+        var contraseña = ""
+        var FECHADEEMISIONGENERAL = document.getElementById('FECHADEEMISIONGENERAL').value;
+        var TIPODEITEM = document.getElementById('TIPODEITEM').value;
+        var CANTIDADGENERAL = document.getElementById('CANTIDADGENERAL').value;
+        var DESCRIPCIONGENERAL = document.getElementById('DESCRIPCIONGENERAL').value;
+        var EMAILGENERAL = document.getElementById('EMAILGENERAL').value;
+        var PVGENERAL = document.getElementById('PVGENERAL').value;
+
+        var CODIGO_DE_UNIDAD_DE_MEDIDA = document.getElementById('CODIGO_DE_UNIDAD_DE_MEDIDA').value;
+        var partes = CODIGO_DE_UNIDAD_DE_MEDIDA.split("-")
+        var UDMABRGENERAL = partes[0];
+        var UNIDADDEMEDIDAGENERAL = partes[1];
+        var TIPODEIMPUESTO = document.getElementById('TIPODEIMPUESTO').value;
+
+        let data = {}
+        data.documento = documento;
+        data.usuario = usuario;
+        data.contraseña = contraseña;
+        data.FECHADEEMISIONGENERAL = FECHADEEMISIONGENERAL;
+        data.TIPODEITEM = TIPODEITEM;
+        data.CANTIDADGENERAL = CANTIDADGENERAL;
+        data.DESCRIPCIONGENERAL = DESCRIPCIONGENERAL;
+        data.EMAILGENERAL = EMAILGENERAL;
+        data.UDMABRGENERALN = UDMABRGENERAL;
+        data.UNIDADDEMEDIDAGENERAL = UNIDADDEMEDIDAGENERAL;
+        data.PVGENERAL =PVGENERAL;
+        data.SL= SL;
+        data.TIPODEIMPUESTO = TIPODEIMPUESTO
+        
+     fetch(url, {
+        method: 'POST',
+        mode:"cors",  
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(data => {console.log(data);   musica.play(); })
+      .catch(error => {console.log(error); musica.play();})
+      .then(response => { console.log('Success:', response)  ; musica.play(); }); 
+    };
+    
+    document.getElementById('cargardatos2').addEventListener('click', sendRequest);
+    
+    
+        </script>
+    
+
+   
+  </body>
+</html>
