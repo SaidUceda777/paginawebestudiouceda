@@ -1,0 +1,122 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AutoServicio - Registro de RUC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_CSIRE.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="nav__container container" style="width: 100%; margin: 0; padding: 0; justify-content: space-between !important; display: flex !important; width: auto;">
+      <figure class="hero__logo__container">
+        <img src="logo.svg" alt="" class="hero__logo__icon" />
+      </figure>
+      <div class="hero__links container">
+        <a href="./boleteomasivo.html" class="hero__link">Volver a Boleteo</a>
+      </div>
+    </nav>
+
+    <div class="container" style="margin: 50px auto; padding: 0; justify-content: center; width: 90%;">
+      <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: black !important; font-size: 18px;">
+          AutoServicio - Registro de RUC
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-4 col-lg-offset-1">
+              <label>RUC</label>
+              <input type="text" class="form-control" id="ruc" placeholder="11 dígitos" />
+            </div>
+            <div class="col-lg-4">
+              <label>Nombre / Razón social</label>
+              <input type="text" class="form-control" id="desCliente" placeholder="Cliente" />
+            </div>
+            <div class="col-lg-8 col-lg-offset-1" style="margin-top: 15px;">
+              <label>Descripción adicional</label>
+              <input type="text" class="form-control" id="desAdicional" placeholder="Información adicional" />
+            </div>
+            <div class="col-lg-8 col-lg-offset-1" style="margin-top: 15px;">
+              <div class="alert alert-warning" style="font-size: 13px; margin-bottom: 0;">
+                <strong>IMPORTANTE:</strong> Para registrar un RUC, el programa (servidor) debe estar activo y en ejecuci&oacute;n. Si no est&aacute; encendido, el registro no se completar&aacute;.
+              </div>
+            </div>
+            <div class="col-lg-8 col-lg-offset-1" style="margin-top: 15px;">
+              <button type="button" class="btn btn-default botoncargarexcel" id="registrarRuc">
+                Registrar RUC
+              </button>
+            </div>
+            <div class="col-lg-8 col-lg-offset-1" style="margin-top: 15px;">
+              <div id="resultado" class="alert" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE = "http://localhost:3000";
+
+      function buildFingerprint() {
+        const parts = [
+          `ua=${navigator.userAgent || "na"}`,
+          `platform=${navigator.platform || "na"}`,
+          `language=${navigator.language || "na"}`,
+          `timezone=${Intl.DateTimeFormat().resolvedOptions().timeZone || "na"}`,
+          `screen=${window.screen.width}x${window.screen.height}`,
+          `cores=${navigator.hardwareConcurrency || "na"}`,
+          `memory=${navigator.deviceMemory || "na"}`,
+        ];
+        return parts.join(" | ");
+      }
+
+      function showMessage(message, isError) {
+        const result = document.getElementById("resultado");
+        result.style.display = "block";
+        result.className = isError ? "alert alert-danger" : "alert alert-success";
+        result.textContent = message;
+      }
+
+      async function registrarRuc() {
+        const ruc = document.getElementById("ruc").value.trim();
+        const desCliente = document.getElementById("desCliente").value.trim();
+        const desAdicional = document.getElementById("desAdicional").value.trim();
+        const fingerprint = buildFingerprint();
+
+        if (!/^\d{11}$/.test(ruc)) {
+          showMessage("El RUC debe contener 11 dígitos.", true);
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_BASE}/autoservicio/registrar-ruc`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ruc,
+              desCliente,
+              desAdicional,
+              fingerprint,
+            }),
+          });
+
+          const payload = await response.json();
+          if (!response.ok) {
+            throw new Error(payload.message || "No se pudo registrar el RUC.");
+          }
+
+          showMessage("Registro finalizado correctamente.", false);
+          document.getElementById("ruc").value = "";
+          document.getElementById("desCliente").value = "";
+          document.getElementById("desAdicional").value = "";
+        } catch (error) {
+          showMessage(error.message || "Error al registrar.", true);
+        }
+      }
+
+      document.getElementById("registrarRuc").addEventListener("click", registrarRuc);
+    </script>
+  </body>
+</html>
